@@ -1,11 +1,15 @@
 import React from "react";
-import PaginaInicial from "./src/PaginaInicial";
+import PaginaInicial from "./src/paginainicial";
+import Login from "./src/login";
+import CadastroProduto from "./src/screens/CadastroProduto";
 
 function App():React.JSX.Element{
 
   return(
-    <PaginaInicial />
-  )
+    //<CadastroProduto />
+    //<Login/>
+    <CadastroProduto />
+    )
 }
 
 
