@@ -1,37 +1,18 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { StatusBar, StyleSheet, TextInput, TouchableOpacity,Image, Text, View  } from "react-native";
+import { StatusBar, StyleSheet, TextInput, TouchableOpacity, Image, Text, View } from "react-native";
 import { launchCamera } from "react-native-image-picker";
 
-const CadastroProduto: React.FC = () => {
+const CadastroCliente: React.FC = () => {
 
+    const [endereco, setEndereco] = useState<string>('');
     const [nome, setNome] = useState<string>('');
-    const [preco, setPreco] = useState<string>('');
-    const [ingredientes, setIngredientes] = useState<string>('');
+    const [telefone, setTelefone] = useState<string>('');
+    const [cpf, setCpf] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
     const [imagem, setImagem] = useState<any>('');
+    const [password,setPassword] = useState<string>('');
 
-
-    const cadastrarProduto = async () => {
-        try{
-            const formData =  new FormData();
-            formData.append('nome', nome);
-            formData.append('preco', preco);
-            formData.append('ingredientes', ingredientes);
-            formData.append('imagem', {
-                uri: imagem,
-                type: 'image/jpeg',
-                name: new Date() + 'jpg'
-            });
-
-            console.log(formData)
-            const response = await axios.post('http://10.137.11.212:8000/api/cliente', formData,{
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-        }catch (error) {
-            console.log(error);
-        }
+    const CadastrarCliente = async () => {
 
     }
 
@@ -60,31 +41,47 @@ const CadastroProduto: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor={'red'} barStyle="light-content" />
+            <StatusBar backgroundColor={'pink'} barStyle="light-content" />
             <View style={styles.header}>
                 <Text style={styles.headerText}>𝙋𝙞𝙣𝙞𝙣𝙞𝙨 𝘾𝙤𝙛𝙛𝙚𝙚</Text>
             </View>
             <View style={styles.form}>
                 <TextInput style={styles.input}
-                    placeholder="Nome do Produto"
+                    placeholder="Nome do cliente"
                     value={nome}
                     onChangeText={setNome} />
 
                 <TextInput style={styles.input}
-                    placeholder="Preco do Produto"
-                    value={preco}
-                    onChangeText={setPreco} />
+                    placeholder="endereco do cliente"
+                    value={endereco}
+                    onChangeText={setEndereco} />
 
                 <TextInput style={styles.input}
-                    placeholder="Ingredientes"
-                    value={ingredientes}
-                    onChangeText={setIngredientes}
+                    placeholder="telefone do cliente"
+                    value={telefone}
+                    onChangeText={setTelefone} />
+
+                <TextInput style={styles.input}
+                    placeholder="cpf do cliente"
+                    value={cpf}
+                    onChangeText={setCpf} />
+
+                <TextInput style={styles.input}
+                    placeholder="email do cliente"
+                    value={email}
+                    onChangeText={setEmail}
                     multiline />
 
                 <TextInput style={styles.input}
-                    placeholder="Imagem"
+                    placeholder="imagem do cliente"
                     value={imagem}
                     onChangeText={setImagem}
+                    multiline />
+
+                <TextInput style={styles.input}
+                    placeholder="senha do cliente"
+                    value={password}
+                    onChangeText={setPassword}
                     multiline />
 
                     <View style={styles.alinhamentoImagensSelecionada}>
@@ -100,7 +97,7 @@ const CadastroProduto: React.FC = () => {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.imageButton}>
-                        <Text style={styles.imageButtonText}>Cadastrar Produto</Text>
+                        <Text style={styles.imageButtonText}>Cadastrar cliente</Text>
                     </TouchableOpacity>
 
             </View>
@@ -114,7 +111,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     }, header: {
-        backgroundColor: 'red',
+        backgroundColor: 'pink',
         paddingVertical: 10,
         alignItems: 'center'
     }, headerText: {
@@ -136,7 +133,7 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     imageButton: {
-        backgroundColor: 'red',
+        backgroundColor: 'pink',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center',
@@ -158,7 +155,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     button: {
-        backgroundColor: 'red',
+        backgroundColor: 'pink',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center'
@@ -175,4 +172,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default CadastroProduto;
+export default CadastroCliente;
