@@ -1,5 +1,8 @@
 import React from "react";
 import { FlatList, Image, ImageBackground, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import CadastroProduto from "./screens/CadastroProduto";
+import { useNavigation } from "@react-navigation/native";
+
 
 interface Item{
     id: string;
@@ -43,6 +46,8 @@ const renderItem = ({item}: {item: Item}) => (
     </TouchableOpacity>
 );
 function PaginaInicial(): React.JSX.Element{
+
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <ImageBackground source={require('./assets/images/certo.png')} style={styles.fundoBg}>
@@ -63,6 +68,9 @@ function PaginaInicial(): React.JSX.Element{
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
                     />
+
+                    const navigation = useNavigation();
+
                     </ImageBackground>
                     <View style={styles.footer}>
                         <TouchableOpacity>
@@ -72,7 +80,7 @@ function PaginaInicial(): React.JSX.Element{
                         />
                         </TouchableOpacity>
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() =>  (CadastroProduto)}>
                             <Image
                             source={require('./assets/images/order.png')}
                             style={ styles.footerIcon}

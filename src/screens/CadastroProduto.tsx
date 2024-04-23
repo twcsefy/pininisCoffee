@@ -60,7 +60,7 @@ const CadastroProduto: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor={'red'} barStyle="light-content" />
+            <StatusBar backgroundColor={'#490959'} barStyle="light-content" />
             <View style={styles.header}>
                 <Text style={styles.headerText}>𝙋𝙞𝙣𝙞𝙣𝙞𝙨 𝘾𝙤𝙛𝙛𝙚𝙚</Text>
             </View>
@@ -79,12 +79,6 @@ const CadastroProduto: React.FC = () => {
                     placeholder="Ingredientes"
                     value={ingredientes}
                     onChangeText={setIngredientes}
-                    multiline />
-
-                <TextInput style={styles.input}
-                    placeholder="Imagem"
-                    value={imagem}
-                    onChangeText={setImagem}
                     multiline />
 
                     <View style={styles.alinhamentoImagensSelecionada}>
@@ -114,7 +108,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     }, header: {
-        backgroundColor: 'red',
+        backgroundColor: '#490959',
         paddingVertical: 10,
         alignItems: 'center'
     }, headerText: {
@@ -124,7 +118,7 @@ const styles = StyleSheet.create({
     },
     form: {
         padding: 10,
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '##490959',
         marginBottom: 10
     },
     input: {
